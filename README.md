@@ -1,0 +1,1 @@
+This Repository is created for the project Library Management System which is done using HTML, CSS, Javascript, MongoDB and Flask Framework.

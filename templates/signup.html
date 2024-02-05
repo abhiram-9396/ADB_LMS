@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'message.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login-page.css') }}"> 
+    <title>Login - Library Management System</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row" >
+                <a class="back-button btn btn-primary" id="main-button" style="float: left; margin-bottom: 4rem; margin-left: -8rem;"  href="login">
+                    <h6 style="margin: 10%; position: relative;">Back to Login</h6>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-container">
+                <div class="signup-glass-container">
+                    <div class="login-box">
+
+                        <div class="d-flex align-items-center mb-3 pb-1">
+                            <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                            <span class="h1 fw-bold mb-0">
+                              <img src="/static/assets/clg-logo.webp" style="max-width: 40%;" />
+                            </span>
+                        </div>
+
+                        <form action="/signup" method="POST">
+                            <div class="form-group">
+                                <label for="email" style="float: left;">Enter your Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password" style="float: left;">Password:</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirm-password" style="float: left;">Confirm Password:</label>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm-password" required>
+                            </div>
+
+                            <button type="submit" id="main-button" class="btn btn-primary">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to compare password and confirm password -->
+    <script>
+        var password = document.getElementById("password"), confirm_password = document.getElementById("confirm_password");
+
+        function validatePassword(){
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+        }
+
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+{% endblock %}

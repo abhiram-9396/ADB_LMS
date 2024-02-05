@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(0.5turn, #74ebd5, #ACB6E5);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.photo-container {
+    padding: 0;
+    overflow: hidden;
+}
+
+.photo-container img {
+    width: 100vh;
+    height: 100vh;
+    object-fit: contain;
+}
+
+/* change object-fit setting to contain to display whole image */
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass-container {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 70%;
+    width: 60%;
+}
+
+.signup-glass-container {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #fff;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    color: #383737;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+#main-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    /* background: #5f27cd; */
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+#main-button:hover {
+    background: #341f97;
+}
+
+.back-button {
+    float: left;
+    max-width: 10%;
+    margin-top: -8.5%;
+    margin-left: 1%;
+    font-size: small;
+}

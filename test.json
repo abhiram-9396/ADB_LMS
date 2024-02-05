@@ -1,0 +1,35 @@
+[
+    {
+        "BookId": "asfsefwegrsgndryoi1o4e2sdbf",
+        "Title": "To Kill a Mockingbird",
+        "Author": "Harper Lee",
+        "Genre": "Fiction",
+        "ISBN": "9780061120084",
+        "Availability": true,
+        "Branch": "Lee's Summit",
+        "Location": "Fiction Section, Shelf A",
+        "WaitingList": 2
+    },
+    {
+        "BookId": "qwer1234tyui5678asdf90",
+        "Title": "1984",
+        "Author": "George Orwell",
+        "Genre": "Dystopian",
+        "ISBN": "9780451524935",
+        "Availability": false,
+        "Branch": "Warrensburg",
+        "Location": "Sci-Fi Section, Shelf B",
+        "WaitingList": 5
+    },
+    {
+        "BookId": "zxcv0987bnm5432lkjh21",
+        "Title": "The Great Gatsby",
+        "Author": "F. Scott Fitzgerald",
+        "Genre": "Classics",
+        "ISBN": "9780743273565",
+        "Availability": true,
+        "Branch": "Lee's Summit",
+        "Location": "Classics Section, Shelf C",
+        "WaitingList": 0
+    }
+]
