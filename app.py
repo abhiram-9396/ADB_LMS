@@ -4,12 +4,16 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
 from flask_paginate import Pagination
 from bson.json_util import dumps
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__, static_url_path='/static')
-app.config['SECRET_KEY'] = 'Abhiram'
+app.config['SECRET_KEY'] = os.getenv('MY_SECRET_KEY')
 
 try:
-    client = MongoClient("mongodb://localhost:27017/")
+    client = MongoClient(os.getenv('MONGO_URL'))
     db = client["LMS"]
     users = db.users
     print("Database Connection Established!!")
@@ -30,7 +34,6 @@ def signup():
 
         if(user_data):
             email = user_data['email']
-            # return f'{email} already exists!!'
             flash("Invalid: Email already exists.")
             return redirect(url_for("signup"))
 
@@ -70,25 +73,76 @@ def login():
 
     return render_template('login.html')
 
-PER_PAGE = 2
+PER_PAGE = 10
+
+# @app.route('/dashboard')
+# def dashboard():
+#     if 'user' in session:
+#         books_collection = db.Books
+#         books = books_collection.find()
+        
+#         page = int(request.args.get('page', 1))
+#         offset = (page - 1) * PER_PAGE
+#         paginated_books_cursor = books.skip(offset).limit(PER_PAGE)
+#         paginated_books = list(paginated_books_cursor)
+
+#         pagination = Pagination(page=page, total=books_collection.count_documents({}), per_page=PER_PAGE, css_framework='bootstrap4')
+
+#         message = f'Welcome, {session["user"]}! This is your dashboard.'
+#         user_data = users.find_one({'email': session['user']})
+
+#         return render_template('dashboard.html', books=paginated_books, message=message, user_data= user_data, pagination=pagination)
+#     else:
+#         return redirect(url_for('login'))
+
 
 @app.route('/dashboard')
 def dashboard():
     if 'user' in session:
         books_collection = db.Books
-        books = books_collection.find()
-        
+        user_data = users.find_one({'email': session['user']})
+
+        # Retrieve filter parameters from the query string
+        isbn = request.args.get('isbn', '')
+        title = request.args.get('title', '')
+        author = request.args.get('author', '')
+        branch = request.args.get('branch', '')
+        genre = request.args.get('genre', '')
+
+        # Build the query based on the filter criteria
+        query = {
+            'ISBN': {'$regex': f'.*{isbn}.*', '$options': 'i'},
+            'Title': {'$regex': f'.*{title}.*', '$options': 'i'},
+            'Author': {'$regex': f'.*{author}.*', '$options': 'i'},
+            'Branch': {'$regex': f'.*{branch}.*', '$options': 'i'},
+            'Genre': {'$regex': f'.*{genre}.*', '$options': 'i'}
+        }
+
+        # Pipeline for filtering and counting
+        pipeline = [
+            {'$match': query},
+            {'$group': {'_id': None, 'count': {'$sum': 1}}}
+        ]
+
+        # Execute pipeline
+        result = list(books_collection.aggregate(pipeline))
+
+        # Retrieve count from the result
+        total_filtered_books = result[0]['count'] if result else 0
+
+        # Fetch filtered data from MongoDB
         page = int(request.args.get('page', 1))
         offset = (page - 1) * PER_PAGE
-        paginated_books_cursor = books.skip(offset).limit(PER_PAGE)
+        paginated_books_cursor = books_collection.find(query).skip(offset).limit(PER_PAGE)
         paginated_books = list(paginated_books_cursor)
 
-        pagination = Pagination(page=page, total=books_collection.count_documents({}), per_page=PER_PAGE, css_framework='bootstrap4')
+        pagination = Pagination(page=page, total=total_filtered_books, per_page=PER_PAGE, css_framework='bootstrap4')
 
         message = f'Welcome, {session["user"]}! This is your dashboard.'
         user_data = users.find_one({'email': session['user']})
 
-        return render_template('dashboard.html', books=paginated_books, message=message, user_data= user_data, pagination=pagination)
+        return render_template('dashboard.html', books=paginated_books, message=message, user_data=user_data, pagination=pagination) if pagination else render_template('dashboard.html', books=paginated_books, message=message, user_data=user_data)
+
     else:
         return redirect(url_for('login'))
 
@@ -106,6 +160,28 @@ def logout():
     session.pop('user', None)
     return redirect(url_for('login'))
 
+# @app.route('/filter_books', methods=['POST'])
+# def filter_books():
+#     isbn = request.json.get('isbn', '')
+#     title = request.json.get('title', '')
+#     author = request.json.get('author', '')
+#     branch = request.json.get('branch', '').title() 
+#     genre = request.json.get('genre', '')
+
+#     # Build the query based on the filter criteria
+#     query = {
+#         'ISBN': {'$regex': f'.*{isbn}.*', '$options': 'i'},
+#         'Title': {'$regex': f'.*{title}.*', '$options': 'i'},
+#         'Author': {'$regex': f'.*{author}.*', '$options': 'i'},
+#         'Branch': 'Warrensburg',
+#         'Genre': {'$regex': f'.*{genre}.*', '$options': 'i'}
+#     }
+
+#     # Fetch filtered data from MongoDB
+#     filtered_books = db.Books.find(query)
+#     filtered_books_json = dumps(filtered_books)
+
+#     return jsonify(render_template('partials/books_table.html', books=filtered_books_json))
 
 if __name__ == '__main__':
     app.run(debug=True)
