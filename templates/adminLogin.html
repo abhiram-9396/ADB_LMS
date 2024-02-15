@@ -8,14 +8,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Login - Library Management System</title>
+    <title>Admin Login - Library Management System</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login-page.css') }}"> 
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 photo-container">
-                <img src="/static/assets/home.png" alt="Library Image">
+                <img src="/static/assets/Admin-home.png" alt="Library Image">
             </div>
             <div class="col-md-6 form-container">
                 <div class="glass-container">
@@ -28,7 +28,7 @@
                             </span>
                         </div>
 
-                        <form action="/login" method="POST">
+                        <form action="/adminLogin" method="POST">
                             <div class="form-group">
                                 <label for="email" style="float: left;">Email:</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
@@ -41,9 +41,6 @@
 
                             <button type="submit" id="main-button" class="btn btn-primary">Login</button>
                         </form>
-
-                        <h1 class="m-2 pt-3" style="font-size: medium;">Don't Have an Account?</h1>
-                        <a href="signup" id="main-button" class="btn btn-primary" >Sign Up</a>
                     </div>
                 </div>
             </div>

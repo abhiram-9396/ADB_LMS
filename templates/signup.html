@@ -12,18 +12,23 @@
     <title>Login - Library Management System</title>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="container">
-            <div class="row" >
-                <a class="back-button btn btn-primary" id="main-button" style="float: left; margin-bottom: 4rem; margin-left: -8rem;"  href="login">
-                    <h6 style="margin: 10%; position: relative;">Back to Login</h6>
-                </a>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <span class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </span>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="login">Back to Login</a>
+                </li>
+            </ul>
         </div>
+    </nav>
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 form-container">
+            <div class="col-md-12 form-container" style="margin-top: 3rem;">
                 <div class="signup-glass-container">
-                    <div class="login-box">
+                    <div class="signup-box">
 
                         <div class="d-flex align-items-center mb-3 pb-1">
                             <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
@@ -34,17 +39,27 @@
 
                         <form action="/signup" method="POST">
                             <div class="form-group">
-                                <label for="email" style="float: left;">Enter your Email:</label>
+                                <label for="email">Enter your Email:</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="studentID">Enter your StudentID:</label>
+                                <input type="text" class="form-control" id="studentID" name="studentID" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Enter your Name:</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="password" style="float: left;">Password:</label>
+                                <label for="password">Password:</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="confirm-password" style="float: left;">Confirm Password:</label>
+                                <label for="confirm-password">Confirm Password:</label>
                                 <input type="password" class="form-control" id="confirm_password" name="confirm-password" required>
                             </div>
 

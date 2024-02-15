@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(0.5turn, #74ebd5, #ACB6E5);
+    height: 111vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* overflow: hidden; */
+}
+
+.form-container {
+    padding: 3%;
+    display:inline-table;
+    align-items: center;
+    justify-content: center;
+}
+
+.addBook-glass-container {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin-left: 26%;
+}
+
+.addBook-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+#main-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    /* background: #5f27cd; */
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
