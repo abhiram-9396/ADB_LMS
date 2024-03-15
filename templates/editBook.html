@@ -21,10 +21,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href='/deleteBook'>Delete a Book</a>
+                    <a class="nav-link" href='/addBook'>Add a Book</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href='/editBook'>Add a Book</a>
+                    <a class="nav-link" href='/deleteBook'>Delete a Book</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Logout</a>
@@ -35,11 +35,11 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 form-container" style="margin-top: 3rem;">
+            <div class="col-md-12 form-container">
                 <div class="addBook-glass-container">
                     <div class="addBook-box">
 
-                        <form action="/editBook" method="POST">
+                        <form action="/editBook" method="POST" class="editForm">
                             <div class="form-group">
                                 <label for="bookID">Enter BookID:</label>
                                 <input type="text" class="form-control" id="bookID" name="bookID" required>
@@ -67,7 +67,10 @@
 
                             <div class="form-group">
                                 <label for="branch">Enter Branch available at:</label>
-                                <input type="text" class="form-control" id="branch" name="branch" required>
+                                <select type="text" class="form-control" id="branch" name="branch">
+                                    <option value="Lee's Summit">Lee's Summit</option>
+                                    <option value="Warrensburg	">Warrensburg</option>
+                                </select>
                             </div>
 
                             <div class="form-group">

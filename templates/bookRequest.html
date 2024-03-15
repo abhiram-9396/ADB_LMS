@@ -46,8 +46,8 @@
 
                         <form action="/submitRequest/{{ user_profile._id }}" method="POST">
                             <div class="form-group">
-                                <label for="studentID" style="float: left;">Enter your StudentID:</label>
-                                <input type="text" class="form-control" id="studentID" name="studentID" value="{{ user_profile.studentID }}" placeholder="#700" required>
+                                <label for="studentID" style="float: left;">StudentID:</label>
+                                <input type="text" class="form-control" id="studentID" name="studentID" value="{{ user_profile.studentID }}" placeholder="#700" readonly required>
                             </div>
                             
                             <div class="form-group">

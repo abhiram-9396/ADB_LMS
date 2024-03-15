@@ -6,8 +6,6 @@ from flask_paginate import Pagination
 from bson.json_util import dumps
 import os
 from dotenv import load_dotenv
-import json
-from bson import json_util
 
 load_dotenv()
 
@@ -187,16 +185,80 @@ def profile(id):
     except:
         return "Error in fetching the user profile!!"
 
-@app.route('/addBook')
+@app.route('/addBook', methods=['GET','POST'])
 def addBook():
+    if request.method == 'POST':
+        document = {
+            'BookId': request.form['bookID'],
+            'Title': request.form['title'],
+            'Author': request.form['author'],
+            'Genre': request.form['genre'],
+            'ISBN': request.form['isbn'],
+            'Branch': request.form['branch'],
+            'Location': request.form['location'],
+            'WaitingList': 0,
+            'Availability': True
+        }
+
+        try:
+            insert_result = db.Books.insert_one(document)
+            if insert_result.acknowledged:
+                flash("Book Added Successfully.")
+                print("Book Added Successfully.")
+            else:
+                print("Failed to insert document.")
+                flash("Invalid: Failed to insert document.")
+        except Exception as e:
+            print("Error:", str(e))
+            return "Error occurred while adding the book: " + str(e)
+        
     return render_template('adminDashboard.html')
 
-@app.route('/deleteBook')
+@app.route('/deleteBook', methods=['GET','POST'])
 def deleteBook():
+    if request.method == 'POST':
+        try:
+            book_id = request.form['bookID']
+            isbn = request.form['isbn']
+            location = request.form['location']
+
+            book = db.Books.find_one({'BookId': book_id, 'ISBN': isbn, 'Location': location})
+
+            if book:
+                db.Books.delete_one({'BookId': book_id, 'ISBN': isbn, 'Location': location})
+                flash("Book deleted successfully.")
+            else:
+                return "No book found with provided BookId, ISBN, and Location."
+
+        except Exception as e:
+            print("Error:", str(e))
+            return "Error occurred while deleting the book: " + str(e)
+
     return render_template('deleteBook.html')
 
-@app.route('/editBook')
+@app.route('/editBook', methods=['GET','POST'])
 def editBook():
+    try:
+        if request.method == 'POST':
+            book_id = request.form['bookID']
+            book = db.Books.find_one({'BookId': book_id})
+
+            if book:
+                book['Title'] = request.form['title']
+                book['Author'] = request.form['author']
+                book['Genre'] = request.form['genre']
+                book['ISBN'] = request.form['isbn']
+                book['Branch'] = request.form['branch']
+                book['Location'] = request.form['location']
+
+                db.Books.update_one({'BookId': book_id}, {'$set': book})
+                flash("Book updated successfully.")
+            else:
+                return "Book with ID {} not found.".format(book_id)
+    except Exception as e:
+            print("Error:", str(e))
+            return "Error occurred while editing the book: " + str(e)
+    
     return render_template('editBook.html')
 
 @app.route('/logout')
