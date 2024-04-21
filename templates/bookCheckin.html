@@ -8,23 +8,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Admin Dashboard</title>
+    <title>Book CheckIn</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/admin.css') }}"> 
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <h1 class="navbar-brand" href="#">Admin Dashboard</h1>
+        <h1 class="navbar-brand" href="#">Librarian Dashboard</h1>
         <span class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </span>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href='/addBook'>Add a Book</a>
+                    <a class="nav-link" href='/librarianDashboard'>Make Payment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href='/deleteBook'>Delete a Book</a>
+                    <a class="nav-link" href='/checkout'>Book Check Out</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Logout</a>
@@ -39,41 +39,26 @@
                 <div class="addBook-glass-container">
                     <div class="addBook-box">
 
-                        <form action="/editBook" method="POST" class="editForm">
+                        <form action="/checkin" method="POST" class="editForm">
                             <div class="form-group">
                                 <label for="bookID">Enter BookID:</label>
                                 <input type="text" class="form-control" id="bookID" name="bookID" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="title">Enter Title:</label>
-                                <input type="text" class="form-control" id="title" name="title" required>
+                                <label for="StudentID">Enter StudentID:</label>
+                                <input type="text" class="form-control" id="StudentID" name="StudentID" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="author">Enter Author Name:</label>
-                                <input type="text" class="form-control" id="author" name="author" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="genre">Enter Genre:</label>
-                                <input type="text" class="form-control" id="genre" name="genre" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="isbn">Enter ISBN:</label>
-                                <input type="text" class="form-control" id="isbn" name="isbn" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="location">Enter Location available at:</label>
+                                <label for="location">Enter Location CheckingIn at:</label>
                                 <select type="text" class="form-control" id="location" name="location">
                                     <option value="Lee's Summit">Lee's Summit</option>
                                     <option value="Warrensburg">Warrensburg</option>
                                 </select>
                             </div>
 
-                            <button type="submit" id="main-button" class="btn btn-primary">Edit Book</button>
+                            <button type="submit" id="main-button" class="btn btn-primary">CheckIn Book</button>
                         </form>
                     </div>
                 </div>

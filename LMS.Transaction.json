@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "66034ca2369de8e30dafcace"
+  },
+  "StudentID": "70012345",
+  "Type": "CheckOut",
+  "Date": "2024-01-26",
+  "CopyList": [
+    {
+      "CopyId": "FIC4567",
+      "ExpiresOn": "2024-02-05",
+      "RenewCount": 0
+    },
+    {
+      "CopyId": "DEF456",
+      "ExpiresOn": "2024-02-08",
+      "RenewCount": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66034ca2369de8e30dafcacf"
+  },
+  "StudentID": "700678910",
+  "Type": "CheckOut",
+  "Date": "2024-01-27",
+  "CopyList": [
+    {
+      "CopyId": "DYS1234",
+      "ExpiresOn": "2024-02-06",
+      "RenewCount": 0
+    }
+  ]
+}]

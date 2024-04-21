@@ -14,17 +14,17 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <h1 class="navbar-brand" href="#">Admin Dashboard</h1>
+        <h1 class="navbar-brand" href="#">Librarian Dashboard</h1>
         <span class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </span>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href='/addBook'>Add a Book</a>
+                    <a class="nav-link" href='/checkin'>Book Check In</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href='/deleteBook'>Delete a Book</a>
+                    <a class="nav-link" href='/checkout'>Book Check Out</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Logout</a>
@@ -38,42 +38,38 @@
             <div class="col-md-12 form-container">
                 <div class="addBook-glass-container">
                     <div class="addBook-box">
+                        <form action="/makePayment/{{user_result.studentID}}" method="POST">
 
-                        <form action="/editBook" method="POST" class="editForm">
+                            <p>The Due Amount for {{user_result.studentID}} is {{user_result.due_amount}}</p>
+
                             <div class="form-group">
-                                <label for="bookID">Enter BookID:</label>
-                                <input type="text" class="form-control" id="bookID" name="bookID" required>
+                                <label for="amount">Enter Amount:</label>
+                                <input type="number" class="form-control" id="amount" name="amount" required>
                             </div>
 
-                            <div class="form-group">
-                                <label for="title">Enter Title:</label>
-                                <input type="text" class="form-control" id="title" name="title" required>
-                            </div>
+                            <!-- <h4 class="p-2">ENTER CARD DETAILS</h4> -->
 
                             <div class="form-group">
-                                <label for="author">Enter Author Name:</label>
-                                <input type="text" class="form-control" id="author" name="author" required>
+                                <label for="cardName">Card Name:</label>
+                                <input type="text" class="form-control" id="cardName" name="cardName" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="genre">Enter Genre:</label>
-                                <input type="text" class="form-control" id="genre" name="genre" required>
+                                <label for="cardEmail">Email:</label>
+                                <input type="text" class="form-control" id="cardEmail" name="cardEmail" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="isbn">Enter ISBN:</label>
-                                <input type="text" class="form-control" id="isbn" name="isbn" required>
+                                <label for="cardNumber">Card Number:</label>
+                                <input type="text" class="form-control" id="cardNumber" name="cardNumber" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="location">Enter Location available at:</label>
-                                <select type="text" class="form-control" id="location" name="location">
-                                    <option value="Lee's Summit">Lee's Summit</option>
-                                    <option value="Warrensburg">Warrensburg</option>
-                                </select>
+                                <label for="cardCVV">CVV:</label>
+                                <input type="number" class="form-control" id="cardCVV" name="cardCVV" required>
                             </div>
 
-                            <button type="submit" id="main-button" class="btn btn-primary">Edit Book</button>
+                            <button type="submit" id="main-button" class="btn btn-primary">Make Payment</button>
                         </form>
                     </div>
                 </div>

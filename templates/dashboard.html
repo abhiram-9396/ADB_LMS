@@ -24,6 +24,9 @@
                     <a class="nav-link" href='/bookRequest/{{ user_data._id }}'>Request Book</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href='/bookRenew/{{ user_data._id }}'>Renew Book</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href='/profile/{{ user_data._id }}'>Profile</a>
                 </li>
                 <li class="nav-item">
@@ -53,9 +56,6 @@
                         <input type="text" class="form-control" id="authorFilter" name="author" placeholder="Enter Author">
                     </div>
                     <div class="col-md-2">
-                        <input type="text" class="form-control" id="branchFilter" name="branch" placeholder="Enter Branch">
-                    </div>
-                    <div class="col-md-2">
                         <input type="text" class="form-control" id="genreFilter" name="genre" placeholder="Enter Genre">
                     </div>
                     <div class="col-md-2">
@@ -71,29 +71,23 @@
                 <table class="table mt-3">
                     <thead>
                         <tr>
-                            <th scope="col">BookId</th>
+                            <th scope="col">CopyId</th>
                             <th scope="col">Title</th>
                             <th scope="col">Author</th>
                             <th scope="col">Genre</th>
                             <th scope="col">ISBN</th>
                             <th scope="col">Availability</th>
-                            <th scope="col">Branch</th>
-                            <th scope="col">Location</th>
-                            <th scope="col">WaitingList</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for book in books %}
+                        {% for copy in copies %}
                             <tr>
-                                <td>{{ book.BookId }}</td>
-                                <td>{{ book.Title }}</td>
-                                <td>{{ book.Author }}</td>
-                                <td>{{ book.Genre }}</td>
-                                <td>{{ book.ISBN }}</td>
-                                <td>{{ book.Availability }}</td>
-                                <td>{{ book.Branch }}</td>
-                                <td>{{ book.Location }}</td>
-                                <td>{{ book.WaitingList }}</td>
+                                <td> <a href="/Copy/{{ copy.CopyId }}">{{ copy.CopyId }}</a></td>
+                                <td>{{ copy.Title }}</td>
+                                <td>{{ copy.Author }}</td>
+                                <td>{{ copy.Genre }}</td>
+                                <td>{{ copy.ISBN }}</td>
+                                <td>{{ copy.Availability }}</td>
                             </tr>
                         {% endfor %}
                     </tbody>
@@ -141,7 +135,6 @@
             var isbn = document.getElementById('isbnFilter').value;
             var title = document.getElementById('titleFilter').value;
             var author = document.getElementById('authorFilter').value;
-            var branch = document.getElementById('branchFilter').value;
             var genre = document.getElementById('genreFilter').value;
 
             // Making an AJAX request to the Flask server
@@ -164,7 +157,6 @@
         document.getElementById('isbnFilter').addEventListener('input', filterTable);
         document.getElementById('titleFilter').addEventListener('input', filterTable);
         document.getElementById('authorFilter').addEventListener('input', filterTable);
-        document.getElementById('branchFilter').addEventListener('input', filterTable);
         document.getElementById('genreFilter').addEventListener('input', filterTable);
     </script>
 

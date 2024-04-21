@@ -13,7 +13,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top pb-3">
-        <a class="navbar-brand" href="#">Book Request</a>
+        <a class="navbar-brand" href="#">Book Renewal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,7 +23,7 @@
                     <a class="nav-link" href="/dashboard">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href='/bookRenew/{{ user_profile._id }}'>Renew Book</a>
+                    <a class="nav-link" href='/bookRequest/{{ user_profile._id }}'>Request Book</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/profile/{{ user_profile._id }}">Profile</a>
@@ -47,7 +47,7 @@
                             </span>
                         </div>
 
-                        <form action="/submitRequest" method="POST">
+                        <form action="/bookRenewRequest/{{ user_profile.studentID }}" method="POST">
                             <div class="form-group">
                                 <label for="studentID" style="float: left;">StudentID:</label>
                                 <input type="text" class="form-control" id="studentID" name="studentID" value="{{ user_profile.studentID }}" placeholder="#700" readonly required>
