@@ -1,0 +1,154 @@
+[{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e12"
+  },
+  "CopyId": "FIC4567",
+  "Title": "Edited Title",
+  "Author": "George Orwell",
+  "Genre": "Fiction",
+  "ISBN": "9780061120084",
+  "Availability": false
+},
+{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e13"
+  },
+  "CopyId": "DYS1234",
+  "Title": "1984",
+  "Author": "George Orwell",
+  "Genre": "Dystopian",
+  "ISBN": "9780451524935",
+  "Availability": false
+},
+{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e14"
+  },
+  "CopyId": "CLA9876",
+  "Title": "The Great Gatsby",
+  "Author": "F. Scott Fitzgerald",
+  "Genre": "Classics",
+  "ISBN": "9780743273565",
+  "Availability": true
+},
+{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e15"
+  },
+  "CopyId": "CLA7890",
+  "Title": "Pride and Prejudice",
+  "Author": "Jane Austen",
+  "Genre": "Classics",
+  "ISBN": "9780141439518",
+  "Availability": true
+},
+{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e16"
+  },
+  "CopyId": "CLA5678",
+  "Title": "The Catcher in the Rye",
+  "Author": "J.D. Salinger",
+  "Genre": "Classics",
+  "ISBN": "9780241950425",
+  "Availability": false
+},
+{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e17"
+  },
+  "CopyId": "FAN9876",
+  "Title": "The Hobbit",
+  "Author": "J.R.R. Tolkien",
+  "Genre": "Fantasy",
+  "ISBN": "9780547928227",
+  "Availability": true
+},
+{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e18"
+  },
+  "CopyId": "DYS3456",
+  "Title": "Brave New World",
+  "Author": "Aldous Huxley",
+  "Genre": "Dystopian",
+  "ISBN": "9780060850524",
+  "Availability": false
+},
+{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e19"
+  },
+  "CopyId": "FAN2345",
+  "Title": "The Lord of the Rings",
+  "Author": "J.R.R. Tolkien",
+  "Genre": "Fantasy",
+  "ISBN": "9780545017263",
+  "Availability": true
+},
+{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e1a"
+  },
+  "CopyId": "SAT1234",
+  "Title": "Animal Farm",
+  "Author": "George Orwell",
+  "Genre": "Satire",
+  "ISBN": "9780451526342",
+  "Availability": true
+},
+{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e1b"
+  },
+  "CopyId": "HOR2345",
+  "Title": "The Shining",
+  "Author": "Stephen King",
+  "Genre": "Horror",
+  "ISBN": "9780307743657",
+  "Availability": false
+},
+{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e1c"
+  },
+  "CopyId": "SCI9876",
+  "Title": "The Hitchhiker's Guide to the Galaxy",
+  "Author": "Douglas Adams",
+  "Genre": "Sci-Fi",
+  "ISBN": "9780345391803",
+  "Availability": true
+},
+{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e1d"
+  },
+  "CopyId": "GOT4567",
+  "Title": "Frankenstein",
+  "Author": "Mary Shelley",
+  "Genre": "Gothic",
+  "ISBN": "9780141439471",
+  "Availability": true
+},
+{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e1e"
+  },
+  "CopyId": "DYS6789",
+  "Title": "Fahrenheit 451",
+  "Author": "Ray Bradbury",
+  "Genre": "Dystopian",
+  "ISBN": "9781451673319",
+  "Availability": false
+},
+{
+  "_id": {
+    "$oid": "65c04f8dd5fa5e2c8a537e1f"
+  },
+  "CopyId": "GOT6789",
+  "Title": "Wuthering Heights",
+  "Author": "Emily Brontë",
+  "Genre": "Gothic",
+  "ISBN": "9780141439556",
+  "Availability": true
+}]

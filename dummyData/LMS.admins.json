@@ -1,0 +1,8 @@
+[{
+  "_id": {
+    "$oid": "65c6e242d5fa5e2c8a537e30"
+  },
+  "email": "LMS_Admin@gmail.com",
+  "password": "scrypt:32768:8:1$nqpSaUmlMR4aWcsk$e45e0dff0fe720b9b65167002d53113991de6daa4ccf25a298dc74ab6967f5cfab8a11d22b680fe78e2f73a7e52377ee2a6ae04f00e1e9a12096d585d239bf57",
+  "role": "Admin"
+}]

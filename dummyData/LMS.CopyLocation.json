@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "65f4900b369de8e30dafca6b"
+  },
+  "CopyId": "FIC4567",
+  "Location": "Lee's Summit"
+},
+{
+  "_id": {
+    "$oid": "65f4900b369de8e30dafca6c"
+  },
+  "CopyId": "DYS1234",
+  "Location": "Warrensburg"
+},
+{
+  "_id": {
+    "$oid": "65f4900b369de8e30dafca6d"
+  },
+  "CopyId": "CLA9876",
+  "Location": "Warrensburg"
+},
+{
+  "_id": {
+    "$oid": "65f4900b369de8e30dafca6e"
+  },
+  "CopyId": "CLA7890",
+  "Location": "Warrensburg"
+},
+{
+  "_id": {
+    "$oid": "65f4900b369de8e30dafca6f"
+  },
+  "CopyId": "CLA5678",
+  "Location": "Lee's Summit"
+}]

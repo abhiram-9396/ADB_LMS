@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "65c6d0452388e98e6cd33026"
+  },
+  "email": "axg58990@ucmo.edu",
+  "password": "scrypt:32768:8:1$w6h2dR0fqe2DSTff$c9d1ffa681461431daa416ab711ea12a37c880ce2d2551f58506e311d8eacc9ae338047cacf745b486b479b3ae726866e475c4df55ddb9304748dedbf1abf525",
+  "name": "Abhiram",
+  "studentID": "70012346",
+  "role": "Student",
+  "due_amount": 90
+},
+{
+  "_id": {
+    "$oid": "66231a8e72a26e235b033da5"
+  },
+  "email": "nithishkumarvunnam@gmail.com",
+  "password": "scrypt:32768:8:1$TGxG7o9On5k7zQU7$c93c86316c167619f6cec3468b7d2ea2e7737684dbf06011b2749ebfb323dbcda4c4276ebf10312b4492fea0ce00b756b9ec8e1a0e981df72fae6e3fd45442af",
+  "name": "Nithish Kumar",
+  "studentID": "700765813",
+  "role": "Student",
+  "due_amount": 10
+},
+{
+  "_id": {
+    "$oid": "662478163bd565fd7a6da1c1"
+  },
+  "email": "saikumar.podilapu01@gmail.com",
+  "password": "scrypt:32768:8:1$oU6LaEs2xGGu3hHR$43cec77c28c7cc2029eb2f4c79ece613a82b3402d7ea28b929b6eed3f9dd62f9e8ed33e6530cb969cf7d6e8c22c8de7a700dfe1427c05c143d3485beec63a053",
+  "name": "Saikumar",
+  "studentID": "700765540",
+  "role": "Student",
+  "due_amount": 0
+}]
