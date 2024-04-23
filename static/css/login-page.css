@@ -2,7 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(0.5turn, #74ebd5, #ACB6E5);
+    /* background: linear-gradient(0.5turn, #74ebd5, #ACB6E5); */
+    background: #ebebeb;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -93,10 +94,6 @@ input {
     color: #fff;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
-}
-
-#main-button:hover {
-    background: #341f97;
 }
 
 .back-button {

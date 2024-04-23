@@ -7,6 +7,9 @@ from bson.json_util import dumps
 import os
 from dotenv import load_dotenv
 from datetime import date, timedelta, datetime
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 load_dotenv()
 
@@ -167,15 +170,22 @@ def submitBookRequest():
     if 'user' in session:
         if request.method == 'POST':
             try:
+                # StudentID = request.form['studentID']
                 bookId = request.form['bookID']
                 reservation_exist = db.Reservation.find_one({'CopyId': bookId})
-                if reservation_exist:
+                book_available = db.Copies.find_one({'CopyId': bookId})
+                copyloc = db.CopyLocation.find_one({'CopyId': bookId})
+                # user = db.users.find_one({"studentID": StudentID})
+                if book_available['Availability'] == False and reservation_exist:
+                    # send_email("abhiramgat@gmail.com", "abhiram@gat12", email, "LMS Book Request", msg )
                     return "The Requested Book Will Be Expected To Be Available On {}".format(reservation_exist['ExpectedDate'])
+                elif book_available['Availability'] == True:
+                    return "Your Requested Book Is Available at {} Location!!".format(copyloc['Location'])
                 else:
-                    return "Your Request For The Book Is Recorded!!"
+                    return "Your response is recorded!!"
 
-            except:
-                return "Error in fetching the user Book Request!!"
+            except Exception as e:
+                return "Error in fetching the user Book Request!!" + str(e)
     else:
         return redirect(url_for('home'))
 
@@ -191,6 +201,8 @@ def bookRenewRequest(StudentId):
                 for doc in transaction_exist_checkedin['CopyList']:
                     if doc['CopyId'] == CopyId:
                         return "Book Is Already Checked IN..Renewal Not Possible!"
+                    else:
+                        return "This Book Is Not Checked Out By You!!"
                     
             if transaction_exist:
                 for doc in transaction_exist['CopyList']:
@@ -219,7 +231,7 @@ def bookRenewRequest(StudentId):
                             flash("Book Renewal Successful!!")
                             return "Book Renewal Successful!!"
                         
-                        if doc['RenewCount'] == 0:
+                        elif doc['RenewCount'] == 0:
                             return "Book Cannot Be Renewed!!"
             
             else :
@@ -648,6 +660,29 @@ def editBook():
 def logout():
     session.pop('user', None)
     return redirect(url_for('home'))
+
+def send_email(sender_email, sender_password, receiver_email, subject, message):
+    # Set up the MIME
+    msg = MIMEMultipart()
+    msg['From'] = sender_email
+    msg['To'] = receiver_email
+    msg['Subject'] = subject
+
+    # Attach the message to the email
+    msg.attach(MIMEText(message, 'plain'))
+
+    # Create SMTP session
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+
+    # Login
+    server.login(sender_email, sender_password)
+
+    # Send email
+    server.sendmail(sender_email, receiver_email, msg.as_string())
+
+    # Quit SMTP session
+    server.quit()
 
 if __name__ == '__main__':
     app.run(debug=True)

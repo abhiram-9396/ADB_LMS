@@ -59,8 +59,8 @@
                         <input type="text" class="form-control" id="genreFilter" name="genre" placeholder="Enter Genre">
                     </div>
                     <div class="col-md-2">
-                        <button type="submit" class="btn btn-primary mt-1">Filter</button>
-                        <a class="btn btn-primary mt-1" href="/dashboard">Clear</a>
+                        <button type="submit" class="btn btn-danger mt-1">Filter</button>
+                        <a class="btn btn-danger mt-1" href="/dashboard">Clear</a>
                     </div>
                 </div>
             </form>
@@ -82,7 +82,7 @@
                     <tbody>
                         {% for copy in copies %}
                             <tr>
-                                <td> <a href="/Copy/{{ copy.CopyId }}">{{ copy.CopyId }}</a></td>
+                                <td> <a style="color: #2075a3;" href="/Copy/{{ copy.CopyId }}">{{ copy.CopyId }}</a></td>
                                 <td>{{ copy.Title }}</td>
                                 <td>{{ copy.Author }}</td>
                                 <td>{{ copy.Genre }}</td>
